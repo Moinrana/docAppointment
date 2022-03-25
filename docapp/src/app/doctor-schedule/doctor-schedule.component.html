@@ -1,0 +1,34 @@
+<div>
+    <!-- year field -->
+    <mat-form-field appearance="fill">
+        <mat-label>Year</mat-label>
+        <mat-select [(value)]="curryear">
+            <mat-option *ngFor="let year of years" [value]="year">
+                {{year}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- month field -->
+    <mat-form-field appearance="fill">
+        <mat-label>Month</mat-label>
+        <mat-select [(value)]="currmonth">
+            <mat-option *ngFor="let month of months" [value]="month">
+                {{month}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button>Create Appointment</button>
+</div>
+
+<!-- date container -->
+
+<div>
+    <mat-grid-list cols="7" rowHeight="2:1">
+        <mat-grid-tile>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+
+
+</div>
