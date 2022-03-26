@@ -9,11 +9,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+import { AppointmentDialogComponent } from './appointment-dialog/appointment-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DoctorScheduleComponent
+    DoctorScheduleComponent,
+    AppointmentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +32,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

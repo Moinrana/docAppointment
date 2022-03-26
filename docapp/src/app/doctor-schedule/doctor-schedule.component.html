@@ -1,8 +1,8 @@
 <div>
     <!-- year field -->
-    <mat-form-field appearance="fill">
+    <mat-form-field>
         <mat-label>Year</mat-label>
-        <mat-select [(value)]="curryear">
+        <mat-select [(value)]="curryear" (selectionChange)="yearChanged($event)">
             <mat-option *ngFor="let year of years" [value]="year">
                 {{year}}
             </mat-option>
@@ -10,22 +10,26 @@
     </mat-form-field>
 
     <!-- month field -->
-    <mat-form-field appearance="fill">
+    <mat-form-field>
         <mat-label>Month</mat-label>
-        <mat-select [(value)]="currmonth">
-            <mat-option *ngFor="let month of months" [value]="month">
-                {{month}}
+        <mat-select [(value)]="currmonth" (selectionChange)="monthChanged($event)">
+            <mat-option *ngFor="let month of months" [value]="month.serial">
+                {{month.name}}
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <button mat-raised-button>Create Appointment</button>
+    <button mat-raised-button (click)="openAppointmentDialog()">Create Appointment</button>
 </div>
 
 <!-- date container -->
 
 <div>
     <mat-grid-list cols="7" rowHeight="2:1">
-        <mat-grid-tile>
+        <mat-grid-tile *ngFor="let day of days">
+            <div>{{day.daynumber}}</div>
+            <div>
+                <button *ngFor="let apmnt of day.appointments" mat-raised-button color="primary">Appointment: 1{{apmnt.name}}</button>
+            </div>
         </mat-grid-tile>
     </mat-grid-list>
 

@@ -1,0 +1,42 @@
+<div fxLayoutAlign="center center" fxFlexFill fxFlex="100">
+    <form [formGroup]="this.apmntForm" fxLayout="column">
+        <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error *ngIf="name?.invalid && name?.touched">
+                Your name doesn't look right
+            </mat-error>
+        </mat-form-field>
+        <div class="genderblock">
+            <mat-label>Gender:</mat-label>
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-radio-button value="MALE">Male</mat-radio-button>
+                <mat-radio-button value="FEMALE">Female</mat-radio-button>
+                <mat-radio-button value="OTHERS">Others</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <mat-form-field>
+            <input type="number" matInput placeholder="Age" formControlName="age">
+            <mat-error *ngIf="age?.invalid && age?.touched">
+                Your age doesn't look right
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Appointment Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <input matInput placeholder="12hr format (default settings)" aria-label="12hr format" [ngxTimepicker]="default" readonly>
+            <ngx-material-timepicker #default></ngx-material-timepicker>
+        </mat-form-field> -->
+
+        <mat-form-field>
+            <input matInput placeholder="Time" formControlName="time">
+            <mat-error *ngIf="time?.invalid && time?.touched">
+                Your time doesn't look right
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button [disabled]="this.apmntForm.invalid" color="primary" type="submit" (click)="onNoClick()">Save Appointment</button>
+    </form>
+</div>

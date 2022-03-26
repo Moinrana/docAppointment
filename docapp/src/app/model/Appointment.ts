@@ -7,7 +7,7 @@ export class Appointment {
     date: Date;
     time: string;
 
-    public Appointment() {
+    constructor() {
         this.name = '';
         this.gender = '';
         this.age = 0;
