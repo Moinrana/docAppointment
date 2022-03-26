@@ -1,4 +1,3 @@
-import { Time } from "@angular/common";
 
 export class Appointment {
     name: String;
@@ -6,6 +5,7 @@ export class Appointment {
     age: number;
     date: Date;
     time: string;
+    timeint:number = 0;
 
     constructor() {
         this.name = '';
@@ -13,5 +13,10 @@ export class Appointment {
         this.age = 0;
         this.date = new Date();
         this.time = new Date().getTime.toString();
+    }
+
+    getTimeInt(): number {
+        let val = this.time.replace(':', '');
+        return parseInt(val);
     }
 }

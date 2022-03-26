@@ -18,12 +18,14 @@ import { AppointmentDialogComponent } from './appointment-dialog/appointment-dia
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { AppointmentDetaildialogComponent } from './appointment-detaildialog/appointment-detaildialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DoctorScheduleComponent,
-    AppointmentDialogComponent
+    AppointmentDialogComponent,
+    AppointmentDetaildialogComponent
   ],
   imports: [
     BrowserModule,

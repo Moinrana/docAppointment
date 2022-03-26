@@ -3,8 +3,8 @@ import { Appointment } from "./Appointment";
 export class Day {
     daynumber: number;
     appointments: Appointment[];
-    constructor() {
-        this.daynumber = 0;
-        this.appointments = [];
+    constructor(d: number, a: Appointment[]) {
+        this.daynumber = d;
+        this.appointments = a;
     }
 }

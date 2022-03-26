@@ -35,6 +35,7 @@ export class AppointmentDialogComponent implements OnInit {
     this.apmntForm.valueChanges.subscribe(
       val => {
         this.data = val as Appointment;
+        this.data.timeint = this.data.getTimeInt();
       });
   }
 

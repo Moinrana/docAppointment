@@ -18,7 +18,7 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <button mat-raised-button (click)="openAppointmentDialog()">Create Appointment</button>
+    <button style="float: right;" mat-raised-button color="warn" (click)="openAppointmentDialog()">Create Appointment</button>
 </div>
 
 <!-- date container -->
@@ -28,7 +28,7 @@
         <mat-grid-tile *ngFor="let day of days">
             <div>{{day.daynumber}}</div>
             <div>
-                <button *ngFor="let apmnt of day.appointments" mat-raised-button color="primary">Appointment: 1{{apmnt.name}}</button>
+                <button (click)="gotoDetail(apmnt)" *ngFor="let apmnt of day.appointments" mat-raised-button color="primary">Appointment: {{apmnt.name.toString() | slice:0:5}}..</button>
             </div>
         </mat-grid-tile>
     </mat-grid-list>
