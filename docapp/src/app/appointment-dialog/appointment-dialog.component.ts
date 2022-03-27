@@ -32,10 +32,17 @@ export class AppointmentDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.data = new Appointment();
     this.apmntForm.valueChanges.subscribe(
       val => {
-        this.data = val as Appointment;
-        this.data.timeint = this.data.getTimeInt();
+        this.data.age = val.age;
+        this.data.name = val.name;
+        this.data.date = val.date;
+        this.data.gender = val.gender;
+        this.data.time = val.time;
+        if (this.data.time) {
+          this.data.timeint = this.data.getTimeInt();
+        }
       });
   }
 

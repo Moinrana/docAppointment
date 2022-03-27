@@ -5,7 +5,7 @@ export class Appointment {
     age: number;
     date: Date;
     time: string;
-    timeint:number = 0;
+    timeint: number = 0;
 
     constructor() {
         this.name = '';
@@ -17,6 +17,7 @@ export class Appointment {
 
     getTimeInt(): number {
         let val = this.time.replace(':', '');
+        console.log(val);
         return parseInt(val);
     }
 }

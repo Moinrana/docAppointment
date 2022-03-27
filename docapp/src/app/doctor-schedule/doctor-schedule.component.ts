@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AppointmentDetaildialogComponent } from '../appointment-detaildialog/appointment-detaildialog.component';
 import { AppointmentDialogComponent } from '../appointment-dialog/appointment-dialog.component';
 import { LstorageService } from '../lstorage.service';
@@ -29,14 +29,11 @@ export class DoctorScheduleComponent implements OnInit {
     this.currmonth = new Date().getMonth() + 1;
     this.months = new Month(0, '').getAllMonths();
     this.populateDays();
-    let year = this.route.snapshot.paramMap.get('y');
-    this.route.queryParams.subscribe((param) => {
-
-      let paramyear = param['y'];
-      let parammonth = param['m'];
+    this.route.paramMap.subscribe((param: ParamMap) => {
+      let paramyear = param.get("y");
+      let parammonth = param.get("m");
       if (paramyear != null && parammonth != null) {
-        this.setMonthYearFromParam(parseInt(paramyear), parseInt(paramyear));
-        console.log(this.curryear + ", " + this.currmonth);
+        this.setMonthYearFromParam(parseInt(paramyear), parseInt(parammonth));
         this.populateDays();
       }
     });
@@ -67,7 +64,7 @@ export class DoctorScheduleComponent implements OnInit {
   getAppointments(day: number): Appointment[] {
     let selectedAppointments: Appointment[] = [];
     let allappointments = this.lservice.get('appointments');
- 
+
     allappointments.forEach(apm => {
       let appday = new Date(apm.date).getDate();
       let appmonth = new Date(apm.date).getMonth() + 1;
@@ -77,7 +74,7 @@ export class DoctorScheduleComponent implements OnInit {
         selectedAppointments.push(apm);
       }
     });
-   // selectedAppointments.sort((a, b) => b.timeint - a.timeint);
+    // selectedAppointments.sort((a, b) => b.timeint - a.timeint);
     return selectedAppointments;
   }
 
