@@ -24,11 +24,17 @@
 <!-- date container -->
 
 <div>
+    <mat-grid-list cols="7" rowHeight="4:1">
+        <mat-grid-tile *ngFor="let dayname of dayn">
+            {{dayname}}
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-divider></mat-divider>
     <mat-grid-list cols="7" rowHeight="2:1">
         <mat-grid-tile *ngFor="let day of days">
-            <div>{{day.daynumber}}</div>
-            <div>
-                <button (click)="gotoDetail(apmnt)" *ngFor="let apmnt of day.appointments" mat-raised-button color="primary">Appointment: {{apmnt.name.toString() | slice:0:5}}..</button>
+            <div class="dayno">{{day.daynumber}}</div>
+            <div class="appointmentblog">
+                <button class="appointmentbtn" (click)="gotoDetail(apmnt)" *ngFor="let apmnt of day.appointments">Appointment: {{apmnt.name.toString() | slice:0:5}}..</button>
             </div>
         </mat-grid-tile>
     </mat-grid-list>

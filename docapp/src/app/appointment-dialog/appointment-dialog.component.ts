@@ -19,12 +19,17 @@ export class AppointmentDialogComponent implements OnInit {
         Validators.required
       ]]
       , age: ['', [
-        Validators.required
+        Validators.required,
+        Validators.max(100),
+        Validators.min(1)
       ]]
       , gender: ['', [
         Validators.required
       ]]
-      , date: ['']
+      , date: ['', [
+        Validators.required,
+
+      ]]
       , time: ['']
     });
 
@@ -41,6 +46,7 @@ export class AppointmentDialogComponent implements OnInit {
         this.data.gender = val.gender;
         this.data.time = val.time;
         if (this.data.time) {
+          debugger
           this.data.timeint = this.data.getTimeInt();
         }
       });
@@ -48,6 +54,10 @@ export class AppointmentDialogComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close(this.data);
+  }
+
+  onCloseClick():void{
+    this.dialogRef.close();
   }
 
   get name() {

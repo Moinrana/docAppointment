@@ -17,4 +17,8 @@ export class AppointmentDetaildialogComponent implements OnInit {
     this.currApmnt = this.data;
   }
 
+  onCloseClick():void{
+    this.dialogRef.close();
+  }
+
 }

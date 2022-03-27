@@ -1,7 +1,8 @@
-<div fxLayoutAlign="center center" fxFlexFill fxFlex="100">
-    <mat-label><b>Name:</b> {{this.currApmnt.name}}</mat-label>
-    <mat-label><b>Gender:</b> {{this.currApmnt.gender}}</mat-label>
-    <mat-label><b>Age:</b> {{this.currApmnt.age}}</mat-label>
-    <mat-label><b>Date:</b> {{this.currApmnt.date.toString() | date:'MMM d,y'}}</mat-label>
-    <mat-label><b>Time:</b> {{this.currApmnt.time.toString()}}</mat-label>
+<div class="dtlblock" fxLayoutAlign="center center" fxFlexFill fxFlex="100">
+    <mat-label><b>Name:</b> {{this.currApmnt.name}}</mat-label><br>
+    <mat-label><b>Gender:</b> {{this.currApmnt.gender}}</mat-label><br>
+    <mat-label><b>Age:</b> {{this.currApmnt.age}}</mat-label><br>
+    <mat-label><b>Date:</b> {{this.currApmnt.date.toString() | date:'MMM d,y'}}</mat-label><br>
+    <mat-label><b>Time:</b> {{this.currApmnt.time.toString() | time24to12Transform}}</mat-label><br>
+    <button mat-raised-button color="warn" (click)="onCloseClick()">Close</button>
 </div>

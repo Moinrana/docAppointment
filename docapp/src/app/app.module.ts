@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppointmentDialogComponent } from './appointment-dialog/appointment-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,12 +21,15 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { AppointmentDetaildialogComponent } from './appointment-detaildialog/appointment-detaildialog.component';
 
+import { Time24to12Format } from './model/time24to12.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     DoctorScheduleComponent,
     AppointmentDialogComponent,
-    AppointmentDetaildialogComponent
+    AppointmentDetaildialogComponent,
+    Time24to12Format
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,7 @@ import { AppointmentDetaildialogComponent } from './appointment-detaildialog/app
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDividerModule,
     ReactiveFormsModule,
     FormsModule,
     NgxMaterialTimepickerModule

@@ -1,7 +1,26 @@
 mat-grid-tile {
-    background: lightblue;
+    border: 1px solid;
 }
 
 mat-form-field {
     margin: 10px;
+}
+
+.appointmentbtn {
+    padding: 1px;
+    margin: 2px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.appointmentblog {
+    height: 50%;
+    margin-top: 10%;
+    overflow-y: auto;
+}
+
+.dayno {
+    position: absolute;
+    top: 0;
+    left: 45%;
 }

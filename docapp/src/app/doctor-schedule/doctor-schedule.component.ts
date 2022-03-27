@@ -16,6 +16,16 @@ import { Month } from '../model/Month';
 export class DoctorScheduleComponent implements OnInit {
   currAppointment = new Appointment();
   years: number[] = [];
+  daynames = new Map<number, string>([
+    [0, "Thu"],
+    [1, "Fri"],
+    [2, "Sat"],
+    [3, "Sun"],
+    [4, "Mon"],
+    [5, "Tue"],
+    [6, "Wed"],
+  ]);
+  dayn: string[] = [];
   months: Month[] = [];
   mapMonths = new Map<number, string>();
   days: Day[] = [];
@@ -50,14 +60,30 @@ export class DoctorScheduleComponent implements OnInit {
 
   populateDays() {
     this.days = [];
+    this.dayn = [];
     let d = new Date(this.curryear, this.currmonth, 0);
     let nDays = d.getDate();
     let daycounter = 1;
     for (daycounter = 1; daycounter <= nDays; daycounter++) {
+      if (daycounter < 8) {
+
+        let val = this.daynames.get(new Date(this.curryear, this.currmonth, daycounter).getDay())?.toString();
+        if (val) {
+          this.dayn.push(val);
+        }
+      }
       let day = new Day(daycounter, this.getAppointments(daycounter));
-      // day.daynumber = daycounter;
-      // day.appointments = this.getAppointments(day.daynumber);
       this.days.push(day);
+    }
+  }
+
+  populateDaynames() {
+    this.dayn  = [];
+    for (let i = 1; i < 8; i++) {
+      let val = this.daynames.get(new Date(this.curryear, this.currmonth, i).getDay())?.toString();
+      if (val) {
+        this.dayn.push(val);
+      }
     }
   }
 
@@ -121,6 +147,7 @@ export class DoctorScheduleComponent implements OnInit {
         this.days.push(new Day(++lowerc, []));
       }
     }
+    this.populateDaynames();
     this.arrangeAppointments();
   }
 
